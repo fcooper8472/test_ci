@@ -26,9 +26,9 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         python -m pip install .[dev]
 
-      - name: Run coverage
-        run: |
-          coverage run -m pytest
+    - name: Run coverage
+      run: |
+        pytest --cov=./ --cov-report=xml
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
